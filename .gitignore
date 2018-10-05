@@ -1,0 +1,16 @@
+.idea/
+*.sw[op]
+terraform.tfstate.backup
+terraform.tfstate.*.backup
+.terraform*
+modules
+.tf_exec
+errored.tfstate
+aws_region/*/*
+!aws_region/*/regional_variables.tf
+.DS_Store
+*.tfstate
+tmp/*
+lambda/*
+*.pem
+docker-web/node_modules/*

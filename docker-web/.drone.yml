@@ -1,0 +1,24 @@
+pipeline:
+
+  ecr:
+    image: plugins/ecr
+    repo: xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/demo
+    registry: xxxxxx.dkr.ecr.us-east-1.amazonaws.com
+    region: us-east-1
+    tags: latest
+
+  deploy:
+    image: zamwan/drone-ecs-deploy
+    cluster: demo
+    service: demo
+    image_name: xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/demo:latest
+    aws_region: us-east-1
+
+
+  slack:
+    image: plugins/slack
+    webhook: https://hooks.slack.com/services/xxxxx/xxxx/xxxxx
+    channel: #demos
+    icon_emoji: http://blah.com/images/logo_mini_compiler.jpg
+    when:
+      status: [ success, failure ]

@@ -1,0 +1,24 @@
+[
+{
+  "cpu": ${cpu},
+  "memoryReservation": ${mem},
+  "essential": true,
+  "name": "${service_name}",
+  "image": "${image}",
+  "portMappings": [
+    {
+      "hostPort": ${hostport},
+      "containerPort": ${containerport},
+      "protocol": "tcp"
+    }
+  ],
+  "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+              "awslogs-group": "${log_group}",
+              "awslogs-region": "${region}",
+              "awslogs-stream-prefix": "${service_name}"
+          }
+  }
+}
+]
